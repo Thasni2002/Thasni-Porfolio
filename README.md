@@ -2,7 +2,7 @@
 
 [![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://thasni-portfolio.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-Thasni2002-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Thasni2002/Portfolio)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Thasni--S-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/thasni-s)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Thasni--S-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/thasni--s)
 
 > **Live Portfolio Demo:** [https://thasni-portfolio.vercel.app/](https://thasni-portfolio.vercel.app/)
 
@@ -49,5 +49,5 @@ Modern, high-performance portfolio website of **Thasni S**, Full Stack Developer
 
 - **Email:** [thasni7530@gmail.com](mailto:thasni7530@gmail.com)
 - **Phone:** +91 9207530164
-- **LinkedIn:** [linkedin.com/in/thasni-s](https://www.linkedin.com/in/thasni-s)
+- **LinkedIn:** [linkedin.com/in/thasni--s](https://www.linkedin.com/in/thasni--s)
 - **GitHub:** [github.com/Thasni2002](https://github.com/Thasni2002)

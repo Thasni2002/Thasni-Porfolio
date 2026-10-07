@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSkillObserver();
   initProjectModals();
   initResumeModal();
+  initCertModal();
   initProjectFilters();
   initCopyToClipboard();
   initContactForm();
@@ -406,6 +407,47 @@ function initResumeModal() {
       window.print();
     });
   }
+
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+      closeModal();
+    }
+  });
+}
+
+/* --- Certificate Lightbox Modal Controller --- */
+function initCertModal() {
+  const modalOverlay = document.getElementById('cert-modal');
+  const modalClose = document.getElementById('cert-modal-close');
+  const modalImg = document.getElementById('cert-modal-img');
+  const modalTitle = document.getElementById('cert-modal-title');
+  const certBtns = document.querySelectorAll('.btn-cert-view, .cert-img');
+
+  if (!modalOverlay) return;
+
+  certBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const src = btn.getAttribute('data-cert') || btn.getAttribute('src');
+      const title = btn.getAttribute('data-title') || 'Certificate View';
+      if (src) {
+        modalImg.src = src;
+        modalTitle.textContent = title;
+        modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  function closeModal() {
+    modalOverlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  if (modalClose) modalClose.addEventListener('click', closeModal);
 
   modalOverlay.addEventListener('click', (e) => {
     if (e.target === modalOverlay) closeModal();
