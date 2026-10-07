@@ -1221,6 +1221,252 @@ footer {
   opacity: 1;
 }
 
+/* Nav Actions & CV Buttons */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-btn-cv {
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--accent-secondary);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-btn-cv:hover {
+  background: var(--accent-secondary);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+.btn-cv-hero {
+  border-color: rgba(139, 92, 246, 0.4);
+  color: #d8b4fe;
+}
+
+.btn-cv-hero:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: var(--accent-secondary);
+  color: #fff;
+}
+
+.btn-outline {
+  padding: 14px 28px;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-sub);
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--border-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition-normal);
+}
+
+.btn-outline:hover {
+  color: var(--text-main);
+  border-color: var(--text-sub);
+  background: var(--bg-glass);
+}
+
+.project-github-btn {
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  color: var(--text-sub);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition-normal);
+}
+
+.project-github-btn:hover {
+  background: var(--accent-primary);
+  color: #070a12;
+  border-color: var(--accent-primary);
+}
+
+/* --- Resume Modal & Printable Sheet --- */
+.resume-modal-content {
+  max-width: 850px;
+  padding: 36px;
+  background: #0f172a;
+  border: 1px solid var(--border-glow);
+}
+
+.resume-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.resume-modal-name {
+  font-size: 1.8rem;
+  color: var(--accent-primary);
+}
+
+.resume-modal-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-sub);
+}
+
+.btn-print {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+}
+
+.resume-paper-view {
+  background: #ffffff;
+  color: #1e293b;
+  padding: 40px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+.resume-paper-header {
+  text-align: center;
+  border-bottom: 2px solid #0f172a;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.resume-paper-header h1 {
+  font-size: 2.2rem;
+  color: #0f172a;
+  letter-spacing: 1px;
+}
+
+.resume-contacts {
+  font-size: 0.85rem;
+  color: #475569;
+  margin-top: 8px;
+}
+
+.resume-contacts span {
+  display: inline-block;
+  margin: 0 4px;
+}
+
+.resume-contacts a {
+  color: #0284c7;
+  text-decoration: none;
+}
+
+.resume-paper-section {
+  margin-bottom: 20px;
+}
+
+.resume-paper-section h3 {
+  font-size: 1.1rem;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #cbd5e1;
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+}
+
+.resume-paper-section p {
+  font-size: 0.92rem;
+  color: #334155;
+}
+
+.resume-paper-item {
+  margin-bottom: 14px;
+}
+
+.item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.item-head a {
+  color: #0284c7;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.item-sub {
+  font-size: 0.88rem;
+  color: #475569;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.resume-paper-section ul {
+  padding-left: 20px;
+}
+
+.resume-paper-section li {
+  font-size: 0.9rem;
+  color: #334155;
+  margin-bottom: 4px;
+}
+
+.resume-skills-list {
+  list-style: none;
+  padding-left: 0 !important;
+}
+
+.resume-skills-list li {
+  margin-bottom: 6px;
+}
+
+/* Print Styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #resume-modal, #resume-modal * {
+    visibility: visible;
+  }
+  #resume-modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    padding: 0;
+  }
+  .modal-content {
+    max-width: 100%;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    background: #fff;
+  }
+  .modal-close, .resume-modal-header {
+    display: none !important;
+  }
+  .resume-paper-view {
+    box-shadow: none;
+    padding: 20px;
+  }
+}
+
 /* Responsive Media Queries */
 @media (max-width: 992px) {
   .hero-grid, .about-grid, .edu-cert-grid, .contact-grid {

@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTypingEffect();
   initSkillObserver();
   initProjectModals();
+  initResumeModal();
   initProjectFilters();
   initCopyToClipboard();
   initContactForm();
@@ -110,22 +111,44 @@ function initHeaderScroll() {
   });
 }
 
-/* --- Typing Animation --- */
+/* --- Rotating Typing Animation --- */
 function initTypingEffect() {
   const textElement = document.getElementById('typing-text');
   if (!textElement) return;
 
-  const role = 'Python Full Stack Developer';
+  const roles = [
+    'Python Full Stack Developer',
+    'FastAPI & Next.js Specialist',
+    'AI & OCR Integration Engineer',
+    'RESTful API & Database Developer'
+  ];
+  let roleIndex = 0;
   let charIndex = 0;
-  const typingDelay = 80;
-
-  textElement.textContent = '';
+  let isDeleting = false;
+  const typingDelay = 70;
+  const erasingDelay = 40;
+  const newRoleDelay = 2200;
 
   function type() {
-    if (charIndex <= role.length) {
-      textElement.textContent = role.substring(0, charIndex);
+    const currentRole = roles[roleIndex];
+
+    if (isDeleting) {
+      textElement.textContent = currentRole.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      textElement.textContent = currentRole.substring(0, charIndex + 1);
       charIndex++;
-      setTimeout(type, typingDelay);
+    }
+
+    if (!isDeleting && charIndex === currentRole.length) {
+      isDeleting = true;
+      setTimeout(type, newRoleDelay);
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+      setTimeout(type, 400);
+    } else {
+      setTimeout(type, isDeleting ? erasingDelay : typingDelay);
     }
   }
 
@@ -342,6 +365,55 @@ function initMobileMenu() {
       navLinks.style.background = 'rgba(7, 10, 18, 0.95)';
       navLinks.style.padding = '24px';
       navLinks.style.borderBottom = '1px solid var(--border-color)';
+    }
+  });
+}
+
+/* --- Interactive Resume Modal Controller --- */
+function initResumeModal() {
+  const modalOverlay = document.getElementById('resume-modal');
+  const modalClose = document.getElementById('resume-modal-close');
+  const printBtn = document.getElementById('print-resume-btn');
+  const triggerBtns = [
+    document.getElementById('view-resume-nav'),
+    document.getElementById('view-resume-btn'),
+    document.getElementById('view-resume-hero')
+  ];
+
+  if (!modalOverlay) return;
+
+  triggerBtns.forEach(btn => {
+    if (btn) {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+  });
+
+  function closeModal() {
+    modalOverlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  if (modalClose) {
+    modalClose.addEventListener('click', closeModal);
+  }
+
+  if (printBtn) {
+    printBtn.addEventListener('click', () => {
+      window.print();
+    });
+  }
+
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+      closeModal();
     }
   });
 }
